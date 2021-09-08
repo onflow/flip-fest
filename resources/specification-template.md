@@ -81,7 +81,10 @@ If UI designs are needed, these should go here
 - Can we use any as-is modules?
 - Do we need new modules?
 - Do we need to adjust modules?
-
+### API
+- What interface(s) are you exposing?
+- How are you error handling?
+- Which use cases are you covering?
 ### Post-Deployment Items
 
 - Maintenance
