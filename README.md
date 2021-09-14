@@ -23,7 +23,7 @@ For more details on logistics and process, read more [here](https://www.hackerea
 Each project is divided into one or more milestones depending on the complexity. Read more about milestones [here](https://www.hackerearth.com/challenges/hackathon/flip-fest/#prizes).
 
 ### Instructions
-Complete the required work on the respective existing or new repsoitory/repositories following any relevant guidelines and including proper PR documentation. Once all the work for a milestone has been completed, summarize the works done across other repos into a single PR on this repository.
+Complete the required work on the respective milestone via any relvant repsoitory/repositories (make a new public one if required). Follow any relevant guidelines and including proper PR documentation on those repos. Once all the work for a milestone has been completed, summarize the work done across all repos into a single PR on this repository.
 
 To be eligible for rewards, teams must submit a PR to:
 `/submissions/issue-#/milestone-#/team-name`
