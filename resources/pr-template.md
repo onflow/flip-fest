@@ -1,12 +1,10 @@
 # Description
-This is a submission for [issue](#), milestone #X by team [HackerEarthTeamName](#).
 - Provide a summary of the work completed in this PR.
-- Which requirements did you aim to accomplish in this PR?
+    - List of requirements that are being submitted.
 
 # Submission Links & Documents
-Include any new updates made from a previous submission or milestone. 
-Include a description of the key problems solved or requirements completed.
-All work should be linked to PRs on other repos (if required), and clear as to what 
+- Include all link to PRs on other repos (if required), and clear as to what it does. Ensure you follow the PR guidelines on the other repos.
+  - Include or highlight any new updates made from a previous submission or milestone.
 
 # Requirements Check
 - Have have you met the milestone requirements?
