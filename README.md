@@ -15,7 +15,7 @@ Rewards are given per issue for both high quality completion as well as a large 
 
 #### Issue Tracks
 - [FLIP](https://github.com/onflow/flip-fest/issues?q=is%3Aopen+is%3Aissue+label%3AFLIP): A 'Flow Improvement Proposal'.
-- [Infrastructure Tools](https://github.com/onflow/flip-fest/issues?q=is%3Aopen+is%3Aissue+label%3A%22Infrastructure+Tools%22): Tooling that enables other dApps in the ecosystem.
+- [Infrastructure Tools](https://github.com/onflow/flip-fest/issues?q=is%3Aopen+is%3Aissue+label%3A%22Infrastructure+Tools%22): Tooling that provides services to other dApps in the ecosystem.
 - [Learning Tools](https://github.com/onflow/flip-fest/issues?q=is%3Aopen+is%3Aissue+label%3A%22Learning+Tools%22): Tooling to help developers learn and onboard onto Flow.
 - [Local Development Tools](https://github.com/onflow/flip-fest/issues?q=is%3Aopen+is%3Aissue+label%3A%22Local+Development+Tools%22): Tooling that optimizes the developer experience of buidling on Flow.
 - [Non-custoidal Wallet Providers](https://github.com/onflow/flip-fest/issues?q=is%3Aopen+is%3Aissue+label%3A%22Non-custodial+Wallet+Providers%22): Teams interested in building production scale wallet providers on Flow.
