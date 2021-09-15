@@ -2,7 +2,7 @@
 
 # Welcome to Flow's FLIP Fest
 
-This event is being moderated through [Hacker Earth](https://www.hackerearth.com/challenges/hackathon/flip-fest/). If you interested in participating, please review all the details of the event and register through the link above.
+This event is being moderated through [HackerEarth](https://www.hackerearth.com/challenges/hackathon/flip-fest/). If you interested in participating, please review all the details of the event and register through the link above.
 
 ## What is FLIP Fest?
 
