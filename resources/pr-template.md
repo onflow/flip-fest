@@ -1,12 +1,15 @@
 # Description
+
 - Provide a summary of the work completed in this PR.
     - List of requirements that are being submitted.
 
 # Submission Links & Documents
-- Include all link to PRs on other repos (if required), and clear as to what it does. Ensure you follow the PR guidelines on the other repos.
+
+- Include all links to PRs on other repositories (if required) and be clear as to what it does. Ensure you follow the PR guidelines on the other repositories.
   - Include or highlight any new updates made from a previous submission or milestone.
 
 # Requirements Check
+
 - Have have you met the milestone requirements?
 - Have you included tests (if applicable)?
 - Have you met the contribution guidelines of the repos you have submitted code to (if applicable)?
@@ -16,6 +19,6 @@
   - Include a payout structure by percentage for each team member (ie. Bob: 20%, Alice: 80%).
 
 # Other Details
-- Is there anything specific you'd like the POC to know or review for?
-- Are there other references, documentation, or relevant artificats to mention for this PR (ie. external links to justify design decisions, etc.)?
 
+- Is there anything specific you'd like the PoC to know or review for?
+- Are there other references, documentation, or relevant artificats to mention for this PR (ie. external links to justify design decisions, etc.)?
