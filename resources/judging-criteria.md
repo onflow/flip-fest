@@ -7,7 +7,7 @@ In general, your code should:
 - Consider overall design and architecture - features are not built in isolation.
 - Code must not introduce any unintentional regressions, meaning it should not break anything that is already fully functional. If regressions are introduced, these should be clearly documented, along with reasons as to why.
 - Where approriate, be well tested.
-- Where appropriate, have user facing documentation that is written in a concise and easy to read manner for the intended user.
+- Where appropriate, have user-facing documentation that is written in a concise and easy to read manner for the intended user.
 
 # High-Level Judging Criteria
 
