@@ -61,7 +61,7 @@ Each issue has its own requirements outlined inside the issue. Along with this, 
 
 ### Announcements & Updates
 
-All announcements and updates regarding FLIP Fest will be delivered on [Discord](https://discord.com/channels/613813861610684416/885732336052871188) and [GitHub](https://github.com/onflow/flip-fest/discussions).
+All announcements and updates regarding FLIP Fest will be delivered on [Discord](https://discord.com/invite/86h3jGW8) and [GitHub](https://github.com/onflow/flip-fest/discussions).
 
 ### Community
 
