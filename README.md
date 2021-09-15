@@ -12,7 +12,7 @@ Teams or individuals can sign-up to tackle high impact projects through any of t
 Rewards are given per issue for both high quality completion as well as a large reward given to the best solution per project. Read more about the rewards [here](https://www.hackerearth.com/challenges/hackathon/flip-fest/#prizes).
 
 ## Issues, Tracks, & Tiers
-There is a wide variety of issues to work on at various required levels of skill levels. Issues labelled `Tier 1` is the most complex while `Tier 3` is the least. Here are all the available tracks & tiers:
+There is a wide variety of issues to work on at various required levels of skill levels. Here are all the available tracks & tiers:
 
 #### Issue Tracks
 - [FLIP](https://github.com/onflow/flip-fest/issues?q=is%3Aopen+is%3Aissue+label%3AFLIP): A 'Flow Improvement Proposal'.
