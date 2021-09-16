@@ -35,7 +35,7 @@ Small task, spanning 1 milestone, generally can be completed with limited domain
 ## Getting Started
 
 1. Sign up on [HackerEarth](https://www.hackerearth.com/challenges/hackathon/flip-fest/).
-2. Find a team through HackerEarth, our [Discord server](https://discord.com/channels/613813861610684416/885732336052871188), or through GitHub. You may also complete a ticket by yourself, however collaboration is highly encouraged. 
+2. Find a team through HackerEarth, our [Discord server](https://discord.com/channels/613813861610684416/885732336052871188), or through GitHub. You may also complete a ticket by yourself, however collaboration is highly encouraged. **Please contruct and confirm a team with a team name via the HackerEarth platform**.
 3. Find an [issue](https://github.com/onflow/flip-fest/issues) you or your team would like to do and post a comment on the issue with a link to your team's Hacker Earth Team Profile and tag all GitHub usernames of the members on the team.
 
 For more details on logistics and process, read more [here](https://www.hackerearth.com/challenges/hackathon/flip-fest/custom-tab/getting-started/#Getting%20Started).
