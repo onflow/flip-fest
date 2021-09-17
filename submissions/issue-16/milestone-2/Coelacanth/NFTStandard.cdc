@@ -14,7 +14,7 @@
 		The getDataType function returns a DataType object that describes the MIME type of the object for reference by off-chain systems
 			MIME type is used as it is a widely used standard that can already be understood by browsers
 			DataTypes also contain isLink, which is true if the data element describes a link to externaly hosted data.
-			compressedMIME is used to describe the internal data type if the data blob should be decompressed by the client 
+			innerMIME is used to describe the final data type if the data blob should be decompressed or downloaded by the client 
 	Immutable elements can use default types or be defined in custom structs that implement ITaggedMetaData and IImmutableMetaData. 
 		Defining a custom class allows the data elements to be immutable while allowing a developer to upgrade the contract that defines the struct to alter the tags.
 	Mutable elements store Capability pointers to IMetaDataProvider instances that can be stored anywhere.
@@ -43,13 +43,13 @@ pub contract MetaDataUtil {
         pub let MIME : String
         //Is the data a link to a file on an external service (ipfs for instance)
         pub let isLink : Bool
-        //if the data is compressed, this IAMA MIME type of the data inside the compressed bytes
-        pub let compressedMIME : String?
+        //if the data is compressed or a link, this IAMA MIME type of the actual final data (after download/decompression)
+        pub let innerMIME : String?
 
-        init(MIME : String, isLink : Bool, compressedMIME : String?)  {
+        init(MIME : String, isLink : Bool, innerMIME : String?)  {
             self.MIME = MIME
             self.isLink = isLink
-            self.compressedMIME = compressedMIME
+            self.innerMIME = innerMIME
         }
     }
 
@@ -74,19 +74,18 @@ pub contract MetaDataUtil {
         pub let dataProvider: Capability<&{IMetaDataProvider}>
     }
 
+    //Solid version of MetaDataHolder that can be passed around or returned in script call for use off-chain
     pub struct MetaData {
         pub let data : AnyStruct
-        pub let mime : String
         pub let tags : [String]
+        pub let type : DataType
         pub let mutable : Bool
-        pub let link : Bool
 
-        init(data : AnyStruct, mime : String, tags : [String], mutable : Bool, link : Bool) {
+        init(data : AnyStruct, type : DataType, tags : [String], mutable : Bool) {
             self.data = data
-            self.mime = mime
+            self.type = type
             self.tags = tags
             self.mutable = mutable
-            self.link = link
         }
     }
 
@@ -143,7 +142,7 @@ pub contract MetaDataUtil {
             for element in self.elements {
                 if(element.hasAllTags(requiredTags: schemaElement.requiredTags) && element.conformsToTypeRequirements(validMIMETypes: schemaElement.validMIMETypes)) {
                     let dataType = element.getDataType()
-                    matchingElements.append(MetaData(data: element.getData(), mime: dataType.MIME, tags: element.getTags(), mutable: element.isMutable(), link: dataType.isLink))
+                    matchingElements.append(MetaData(data: element.getData(), type: dataType, tags: element.getTags(), mutable: element.isMutable()))
                 }
             }
 
@@ -263,7 +262,8 @@ pub contract MetaDataUtil {
             if(validMIMETypes.length == 0) {
                 return true
             }
-            let mime = self.getDataType().MIME
+            let dataType = self.getDataType()
+            let mime = dataType.innerMIME ?? dataType.MIME
             for type in validMIMETypes {
                 if(type == mime) {
                     return true
@@ -274,7 +274,7 @@ pub contract MetaDataUtil {
 
         pub fun toMetaData() : MetaData {
             let dataType = self.getDataType()
-            return MetaData(data: self.getData(), mime: dataType.MIME, tags: self.getTags(), mutable: self.isMutable(), link: dataType.isLink)
+            return MetaData(data: self.getData(), type: dataType, tags: self.getTags(), mutable: self.isMutable())
         }
 
         //This method can be checked to determine if the associated metadata is able to be altered by developers
@@ -286,14 +286,14 @@ pub contract MetaDataUtil {
 
 pub contract MIME {
     pub let TextPlain : MetaDataUtil.DataType
-    pub let HttpLink : MetaDataUtil.DataType
+    pub let LinkedPNG : MetaDataUtil.DataType
     pub let ImagePNG : MetaDataUtil.DataType
     pub let Numeric : MetaDataUtil.DataType
     pub let AnyStruct : MetaDataUtil.DataType
 
     init() {
         self.TextPlain = MetaDataUtil.DataType("text/plain",false,nil)
-        self.HttpLink = MetaDataUtil.DataType("text/plain",true,nil)
+        self.LinkedPNG = MetaDataUtil.DataType("text/plain",true,"image/png")
         self.ImagePNG = MetaDataUtil.DataType("image/png",false,nil)
         //Not an official MIME type, but can be used for numeric data that will be returned in cadence object format
         self.Numeric = MetaDataUtil.DataType("application/cadence+Number",false,nil)
