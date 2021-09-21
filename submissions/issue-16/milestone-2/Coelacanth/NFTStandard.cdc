@@ -27,12 +27,6 @@
 	MIME contains a number of commonly used DataTypes for convenience
 	CommonMetaDataElements contains default struct implementations that can be wrapped by MetaDataElements
 		More default struct implementations should be added for any other common use cases
-
-    Schema, SchemaElement, and SchemaRetrievalMode are data types primarily for off-chain accessing of MetaData, although it may be useful for certain on-chain functionality
-        MetaDataHolder.retrieveSchemaData can be used to retrieve solid copies of the NFTs metadata for use off-chain via script
-        SchemaRetrievalMode allows the caller to require varying degrees of schema compliance
-        If the Schema complies, MetaDataHolder.retrieveSchemaData returns a Schema object which contains the MetaData in its elements[?].schemaData properties
-        If compliance fails, the method returns nil
 */
 
 pub contract MetaDataUtil {
@@ -75,124 +69,33 @@ pub contract MetaDataUtil {
     }
 
     pub struct MetaData {
-        pub let data : AnyStruct
-        pub let mime : String
-        pub let tags : [String]
-        pub let mutable : Bool
-        pub let link : Bool
-
-        init(data : AnyStruct, mime : String, tags : [String], mutable : Bool, link : Bool) {
-            self.data = data
-            self.mime = mime
-            self.tags = tags
-            self.mutable = mutable
-            self.link = link
-        }
-    }
-
-    pub struct SchemaElement {
-        pub let requiredTags : [String]
-        pub let validMIMETypes : [String]
-        pub let schemaData : [MetaData]
-        init(requiredTags : [String], validMIMETypes : [String]) {
-            self.requiredTags = requiredTags
-            self.validMIMETypes = validMIMETypes
-            self.schemaData = []
-        }
-    }
-
-    pub struct Schema {
-        pub let elements : [SchemaElement]
-        init(elements : [SchemaElement]) {
-            self.elements = elements
-        }
-    }
-
-    pub enum SchemaRetrievalMode : UInt8 {
-        //Schema always is returned, even if empty
-        pub case ALLOW_NONE
-        //Schema is returned if any MetaData is found
-        pub case REQUIRE_ANY
-        //Schema is returned only if all SchemaElements are found
-        pub case REQUIRE_ALL
-        //Schema is returned if any MetaData is found, but only if each SchemaElement has 1 or less matches
-        pub case SINGLE_DATA_ANY
-        //Schema is only returned if exactly one MetaData is found per SchemaElement
-        pub case SINGLE_DATA_ALL
-    }
-
-    pub struct MetaDataHolder {
-        access(self) let elements : [MetaDataElement]
+        pub let elements : [MetaDataElement]
 
         init(metaData : [MetaDataElement]?) {
             self.elements = metaData ?? []
         }
 
-        pub fun getMetaDatasByTag(tag : String) : [MetaData] {
-            var taggedElements : [MetaData] = []
+        pub fun getMetaDataByTag(tag : String) : [MetaDataElement] {
+            var taggedElements : [MetaDataElement] = []
             for element in self.elements {
                 if (element.hasTag(tag : tag)) {
-                    taggedElements.append(element.toMetaData())
+                    taggedElements.append(element)
                 }
             }
             return taggedElements
         }
 
-        pub fun getMetaDatasBySchemaElement(schemaElement: SchemaElement) : [MetaData] {
-            let matchingElements : [MetaData] = []
+        pub fun conformsToSchema(schemaTags : [String]) : Bool {
+            var tags : [String] = []
             for element in self.elements {
-                if(element.hasAllTags(requiredTags: schemaElement.requiredTags) && element.conformsToTypeRequirements(validMIMETypes: schemaElement.validMIMETypes)) {
-                    let dataType = element.getDataType()
-                    matchingElements.append(MetaData(data: element.getData(), mime: dataType.MIME, tags: element.getTags(), mutable: element.isMutable(), link: dataType.isLink))
+                tags.appendAll(element.getTags())
+            }
+            for tag in schemaTags {
+                if(!tags.contains(tag)) { 
+                    return false
                 }
             }
-
-            return matchingElements
-        }
-
-        //When successfull, this method returns the schema object with the MetaData filled into the SchemeElements
-        //If the NFTs metadata does not conform to the schema with the chosen SchemaRetrievalMode, it returns nil
-        //Checking the return of this method to see if it is nil can be used to check if the NFT conforms to the required Schema
-        pub fun retrieveSchemaData(schema : Schema, retrievalMode : SchemaRetrievalMode) : Schema? {
-            var foundAll = true
-            var foundAny = false
-            var allSingle = true
-            for schemaElement in schema.elements {
-                let found = self.getMetaDatasBySchemaElement(schemaElement: schemaElement)
-                schemaElement.schemaData.appendAll(found)
-
-                if(found.length > 0) {
-                    foundAny = true
-                    if(found.length > 1) {
-                        allSingle = false
-                    }
-                } else {
-                    foundAll = false
-                }
-            }
-
-            switch retrievalMode {
-                case SchemaRetrievalMode.SINGLE_DATA_ALL:
-                    if(!foundAll && !allSingle) {
-                        return nil
-                    }
-                case SchemaRetrievalMode.SINGLE_DATA_ANY:
-                    if(!foundAny && !allSingle) {
-                        return nil
-                    }
-                case SchemaRetrievalMode.REQUIRE_ALL:
-                    if(!foundAll) {
-                        return nil
-                    }
-                case SchemaRetrievalMode.REQUIRE_ANY:
-                    if(!foundAll) {
-                        return nil
-                    }
-                default:
-                    break
-            }
-
-            return schema
+            return true
         }
     }
 
@@ -246,35 +149,6 @@ pub contract MetaDataUtil {
 
         pub fun hasTag(tag : String) : Bool {
             return self.metaData.getTags().contains(tag)
-        }
-
-        pub fun hasAllTags(requiredTags : [String]) : Bool {
-            let tags : [String] = self.metaData.getTags()
-            for tag in requiredTags {
-                if(!tags.contains(tag)) {
-                    return false
-                }
-            }
-
-            return true
-        }
-
-        pub fun conformsToTypeRequirements(validMIMETypes : [String]) : Bool {
-            if(validMIMETypes.length == 0) {
-                return true
-            }
-            let mime = self.getDataType().MIME
-            for type in validMIMETypes {
-                if(type == mime) {
-                    return true
-                }
-            }
-            return false
-        }
-
-        pub fun toMetaData() : MetaData {
-            let dataType = self.getDataType()
-            return MetaData(data: self.getData(), mime: dataType.MIME, tags: self.getTags(), mutable: self.isMutable(), link: dataType.isLink)
         }
 
         //This method can be checked to determine if the associated metadata is able to be altered by developers
