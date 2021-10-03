@@ -265,3 +265,54 @@ The value of the {title} key always refers to the value of title in en.json.
 - [Gatsby doc: Localization and Internationalization](https://www.gatsbyjs.com/docs/how-to/adding-common-features/localization-i18n/)
 - [CryptoDappy issue: Content Translations](https://github.com/bebner/crypto-dappy-learning-hub/issues/2)
 - [CryptoDappy PR: Vietnamese translations](https://github.com/bebner/crypto-dappy-learning-hub/pull/4)
+
+### Discussion
+
+In this PR, we have extended the implementation of the official Gatsby sample without using the i18n framework following the description from [CryptoDappy issue #2](https://github.com/bebner/crypto-dappy-learning-hub/issues/2).
+
+> We'll be implementing an I18n solution like this one, not using any additional I18n framework. This means only translated versions of the .mdx files have to be created.
+
+In the official Gatsby sample, when you manage translated text using `lang.json`, you need to write down all keys to graphql in the useTranslations component.
+
+useTranslations.js
+```
+...
+const query = graphql`
+  query useTranslations {
+    rawData: allFile(filter: { sourceInstanceName: { eq: "translations" } }) {
+      edges {
+        node {
+          name
+          translations: childTranslationsJson {
+            title
+            subtitle
+            beta
+            feedback
+            contribute
+            index_title
+            index_p1
+            index_p2
+            index_p3
+            onboarding_title
+            onboarding_text
+            mission1_title
+            mission1_text
+            mission2_title
+            mission2_text
+            mission3_title
+            mission3_text
+            mission4_title
+            mission4_text
+            mission5_title
+            mission5_text
+            mission6_title
+            mission6_text
+          }
+        }
+      }
+    }
+  }
+`
+```
+
+As the amount of translated text increases, managing these becomes more complicated, so we may want to consider introducing i18n plugins such as [gatsby-plugin-react-i18next](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-i18next/) for more efficient management.
