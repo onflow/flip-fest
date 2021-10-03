@@ -4,9 +4,6 @@
 
 This PR is for issue #6.
 
-- Provide a summary of the work completed in this PR.
- - List of requirements that are being submitted.
-
 ## Submission Links & Documents
 
 https://github.com/bebner/crypto-dappy-learning-hub/pull/5
@@ -66,7 +63,7 @@ const IndexPage = () => {
 
 ##### Localized Link & Navigate
 
-Links in the site will be converted into pages according to the current selected language using the `LocalizedLink` and `ocalizedNavigate` components.
+Links in the site will be converted into pages according to the current selected language using the `LocalizedLink` and `localizedNavigate` components.
 
 navbar.js:
 ```javascript
@@ -266,10 +263,7 @@ The value of the {title} key always refers to the value of title in `en.json`.
 
 ## Other Details
 
-- Is there anything specific you'd like the PoC to know or review for?
-- Are there other references, documentation, or relevant artificats to mention for this PR (ie. external links to justify design decisions, etc.)?
-
-References:
+### References
 
 - [Official Gatsby i18n example](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n)
 - [Gatsby doc: Localization and Internationalization](https://www.gatsbyjs.com/docs/how-to/adding-common-features/localization-i18n/)
