@@ -9,6 +9,7 @@ This PR is for issue #26.
 - It also shows the properties of a particular entity if we pass it as an argument. Eg: flow config view account accountname --> shows the properties of "accountname"
 
 ## Submission Links & Documents
+[PR made on flow-cli](https://github.com/onflow/flow-cli/pull/394)
 
 ## Requirements Check
 
