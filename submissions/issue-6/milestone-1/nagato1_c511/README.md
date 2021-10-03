@@ -9,8 +9,7 @@ This PR is for issue #6.
 
 ## Submission Links & Documents
 
-- Include all links to PRs on other repositories (if required) and be clear as to what it does. Ensure you follow the PR guidelines on the other repositories.
-  - Include or highlight any new updates made from a previous submission or milestone.
+https://github.com/bebner/crypto-dappy-learning-hub/pull/5
 
 ### Milestone Requirements
 
@@ -23,19 +22,19 @@ Screenshot:
 
 #### I18n solution
 
-Based on the official Gatsby i18n sample, we have implemented a page-by-page translation function using mdx files and a sentence-by-sentence translation function using lang.json files.
+Based on the [official Gatsby i18n example](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n), we have implemented a page-by-page translation function using mdx files and a sentence-by-sentence translation function using `[LANG].json` files.
 
 ##### Using mdx based i18n
 
-Prepare a translation file in the form of `pagename.lang.mdx` under the `src/missions folder`.
+Prepare a translation file in the form of `[FILENAME].[LANG].mdx` under the `src/missions` folder.
 
 ##### Using  json based i18n
 
-Prepare a translation file in the form of `lang.json` under the folder `src/config/translations`.
+Prepare a translation file in the form of `[LANG].json` under the `src/config/translations` folder.
 
 eg.)
 
-ja.json
+ja.json:
 ```javascript
 {
     "subtitle": "モダンな方法で<Highlight>ブロックチェーンを学ぼう</Highlight>",
@@ -49,7 +48,7 @@ ja.json
 
 To use the translated text in the page, use the `useTranslations` component.
 
-index.js
+index.js:
 ```javascript
 import * as React from "react"
 import useTranslations from "../components/useTranslations"
@@ -67,9 +66,9 @@ const IndexPage = () => {
 
 ##### Localized Link & Navigate
 
-Links in the site will be converted into pages according to the current selected language using the `LocalizedLink` and `LocalizedNavigate` components.
+Links in the site will be converted into pages according to the current selected language using the `LocalizedLink` and `ocalizedNavigate` components.
 
-navbar.js
+navbar.js:
 ```javascript
 <NavLink>
   <Dappy src={`${config.ASSETS_URL}/images/Dappy${i + 1}.png`} />
@@ -77,8 +76,8 @@ navbar.js
 </NavLink>
 ```
 
-```
-<Button onClick={() => LocalizedNavigate('/contribute', lang)}>Contribute</Button>
+```javascript
+<Button onClick={() => localizedNavigate('/contribute', lang)}>Contribute</Button>
 ```
 
 ##### Edit i18n options
@@ -145,11 +144,11 @@ Our team has created additional Japanese translation files for these.
 
 ### Json ranslation with HTML tag/React component
 
-Our team has implemented an additional function that allows you to use html tags and React components in the translated text in lang.json.
+Our team has implemented an additional function that allows you to use html tags and React components in the translated text in `[LANG].json`.
 
 eg.)
 
-en.json
+en.json:
 ```javascript
 {
     ...
@@ -159,7 +158,7 @@ en.json
 }
 ```
 
-index.js
+index.js:
 ```javascript
 import useTranslations from "../components/useTranslations"
 import parse from 'html-react-parser';
@@ -175,7 +174,7 @@ const IndexPage = () => {
 }
 ```
 
-header.js
+header.js:
 ```javascript
 import useTranslations from "./useTranslations"
 import parse, { domToReact } from 'html-react-parser';
@@ -201,7 +200,7 @@ const Highlight = styled.span`
 
 ### Translation fallback
 
-Our team has added the ability to fall back to the default language (en) if there is no corresponding translation in the mdx file or lang.json for each language.
+Our team has added the ability to fall back to the default language (en) if there is no corresponding translation in the mdx file or `[LANG].json` for each language.
 
 #### Mdx fallback example
 
@@ -228,9 +227,9 @@ Mapping of URL paths to mdx files
 
 #### Json fallback example
 
-In case of the {title} key is present in en.json but not in ja.json.
+In case of the {title} key is present in `en.json` but not in `ja.json`.
 
-en.json
+en.json:
 ```javascript
 {
     "title": "<Highlight>Crypto</Highlight>Dappy",
@@ -239,7 +238,7 @@ en.json
 }
 ```
 
-ja.json
+ja.json:
 ```javascript
 {
     "subtitle": "モダンな方法で<Highlight>ブロックチェーンを学ぼう</Highlight>",
@@ -247,7 +246,7 @@ ja.json
 }
 ```
 
-The value of the {title} key always refers to the value of title in en.json.
+The value of the {title} key always refers to the value of title in `en.json`.
 
 ## Requirements Check
 
@@ -283,9 +282,9 @@ In this PR, we have extended the implementation of the official Gatsby sample wi
 
 > We'll be implementing an I18n solution like this one, not using any additional I18n framework. This means only translated versions of the .mdx files have to be created.
 
-In the official Gatsby sample, when you manage translated text using `lang.json`, you need to write down all keys to graphql in the useTranslations component.
+In the official Gatsby sample, when you manage translated text using `[LANG].json`, you need to write down all keys to graphql in the useTranslations component.
 
-useTranslations.js
+useTranslations.js:
 ```javascript
 ...
 const query = graphql`
