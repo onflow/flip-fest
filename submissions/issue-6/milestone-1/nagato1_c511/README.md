@@ -38,7 +38,7 @@ Prepare a translation file in the form of `lang.json` under the folder `src/conf
 eg.)
 
 ja.json
-```
+```javascript
 {
     "subtitle": "モダンな方法で<Highlight>ブロックチェーンを学ぼう</Highlight>",
     "beta": "ベータ版",
@@ -52,7 +52,7 @@ ja.json
 To use the translated text in the page, use the `useTranslations` component.
 
 index.js
-```
+```javascript
 import * as React from "react"
 import useTranslations from "../components/useTranslations"
 
@@ -72,7 +72,7 @@ const IndexPage = () => {
 Links in the site will be converted into pages according to the current selected language using the `LocalizedLink` and `LocalizedNavigate` components.
 
 navbar.js
-```
+```javascript
 <NavLink>
   <Dappy src={`${config.ASSETS_URL}/images/Dappy${i + 1}.png`} />
   <LocalizedLink to={m.link}>{m.name}</LocalizedLink >
@@ -87,7 +87,7 @@ navbar.js
 
 To add or change a language setting, edit `config/i18n.js`.
 
-```
+```javascript
 module.exports = {
   defaultLang: 'en',
   langs:{
@@ -141,7 +141,7 @@ Our team has implemented an additional function that allows you to use html tags
 eg.)
 
 en.json
-```
+```javascript
 {
     ...
     "subtitle": "The modern way to <Highlight>learn blockchain</Highlight>",
@@ -151,7 +151,7 @@ en.json
 ```
 
 index.js
-```
+```javascript
 import useTranslations from "../components/useTranslations"
 import parse from 'html-react-parser';
 
@@ -167,7 +167,7 @@ const IndexPage = () => {
 ```
 
 header.js
-```
+```javascript
 import useTranslations from "./useTranslations"
 import parse, { domToReact } from 'html-react-parser';
 
@@ -222,7 +222,7 @@ Mapping of URL paths to mdx files
 In case of the {title} key is present in en.json but not in ja.json.
 
 en.json
-```
+```javascript
 {
     "title": "<Highlight>Crypto</Highlight>Dappy",
     "subtitle": "The modern way to <Highlight>learn blockchain</Highlight>",
@@ -231,7 +231,7 @@ en.json
 ```
 
 ja.json
-```
+```javascript
 {
     "subtitle": "モダンな方法で<Highlight>ブロックチェーンを学ぼう</Highlight>",
     ...
@@ -275,7 +275,7 @@ In this PR, we have extended the implementation of the official Gatsby sample wi
 In the official Gatsby sample, when you manage translated text using `lang.json`, you need to write down all keys to graphql in the useTranslations component.
 
 useTranslations.js
-```
+```javascript
 ...
 const query = graphql`
   query useTranslations {
