@@ -14,8 +14,6 @@ This PR is for issue #6.
 
 ### Milestone Requirements
 
-> I18n solution & add language-selection dropdown in navbar
-
 #### Language-selection dropdown in navbar
 
 Add a select menu to the navbar using `react-select` and `react-country-flag` libraries.
@@ -112,11 +110,22 @@ module.exports = {
 
 ### Software Requirements
 
-> Testing
+#### Testing
+
+We have manually verified these test cases:
+
+- Make sure that the language selection menu links to the correct localized page.
+- Make sure that the links in the localized pages are in the same language setting.
+- Make sure the translated text is displayed correctly if exists.
 
 ### Other Requirements
 
-> Documentation of the steps taken
+#### Documentation of the steps taken
+
+- Implementation of localization functions based on official gatsby samples
+- Preparing the Japanese translation text
+- Checking the operation of the localization functions
+- Improving the localization functions (see Additional works)
 
 ## Additional works
 
@@ -260,6 +269,8 @@ The value of the {title} key always refers to the value of title in en.json.
 
 - Is there anything specific you'd like the PoC to know or review for?
 - Are there other references, documentation, or relevant artificats to mention for this PR (ie. external links to justify design decisions, etc.)?
+
+References:
 
 - [Official Gatsby i18n example](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n)
 - [Gatsby doc: Localization and Internationalization](https://www.gatsbyjs.com/docs/how-to/adding-common-features/localization-i18n/)
