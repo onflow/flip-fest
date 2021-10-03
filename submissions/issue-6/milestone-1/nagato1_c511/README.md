@@ -29,11 +29,11 @@ Based on the official Gatsby i18n sample, we have implemented a page-by-page tra
 
 ##### Using mdx based i18n
 
-Prepare a translation file in the form of 'pagename.lang.mdx' under the src/missions folder.
+Prepare a translation file in the form of `pagename.lang.mdx` under the `src/missions folder`.
 
 ##### Using  json based i18n
 
-Prepare a translation file in the form of 'lang.json' under the folder src/config/translations.
+Prepare a translation file in the form of `lang.json` under the folder `src/config/translations`.
 
 eg.)
 
@@ -85,7 +85,7 @@ navbar.js
 
 ##### Edit i18n options
 
-To add or change a language setting, edit config/i18n.js.
+To add or change a language setting, edit `config/i18n.js`.
 
 ```
 module.exports = {
