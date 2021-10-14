@@ -9,7 +9,7 @@
         can be inherited: complex projects need to inherit this standard contract, and then it is easy to write their own extensions
 */
 
-pub contract MetaDataBase {
+pub contract NftBase {
     pub struct Metadata {
         // the title of Nft
         pub let title: String
