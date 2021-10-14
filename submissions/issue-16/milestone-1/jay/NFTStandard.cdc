@@ -2,214 +2,56 @@
 	This project is addressing problem "New Standard: NFT metadata #16"
 	The below code is untested and is meant as an illustration of the concept.
 
-
-	MetaDataUtil is added as a new default contract.
-
-	Metadata is instantiated in the form of structs at the time the NFT is minted.
-	Metadata is organized by string tags, and each metadata element may have multiple tags allowing NFTs to conform to multiple tag schemas.
-	Metadata elements cannot be added after the NFT is minted, but Mutable elements can allow data to be modifiable.
-
-	MetaDataElements are wrappers around two possible types of structs, one of which is immutable and the other of which is Mutable.
-	Immutable elements can use default types or be defined in custom structs that implement ITaggedMetaData and IImmutableMetaData.
-		Defining a custom class allows the data elements to be immutable while allowing a developer to upgrade the contract that defines the struct to alter the tags.
-	Mutable elements store Capability pointers to IMetaDataProvider instances that can be stored anywhere.
-		Mutable elements can be used for metadata that can be modified, such as for leveling up a character.
-		Mutable elements can also be used for metadata that is shared between multiple NFTs, to minimize redundant data storage.
-			A Side-effect (benefit?) here is that if the instance is stored in a contract in the developers account, the developer will need to cover the metaData storage costs instead of the NFT holder.
-			PNG_RemoteDefaultImage is a default implementation that can be used to give an NFT a shared and/or updatable image.
-				RemotePNGProvider is an example of an implementation of IMetaDataProvider that allows multiple NFTs to share the same image via Capability reference.
+    The standard should
+        fields are clear: any developer should comply, and browsers and other integrators can get the same type of data without any hassle
+        very few restrictions: only abstract the common parts, whether they are needed for games, artwork or other projects
+        easy to understand: standard contracts should not use complex design patterns and concepts, novice developers should also be able to understand and agree
+        can be inherited: complex projects need to inherit this standard contract, and then it is easy to write their own extensions
 */
 
-pub contract MetaDataUtil {
-    pub struct interface ITaggedMetaData {
-        pub fun getTags() : [String]
-    }
+pub contract MetaDataBase {
+    pub struct Metadata {
+        // the title of Nft
+        pub let title: String
+        // the creator address of Nft, royalty income should be transferred to this address
+        pub let creator: Address
+        // the description of Nft
+        pub let description: String
+        // Nft data storage links, either on a centralized server or on another chain, such as ipfs
+        pub let url: String
+        // the MD5Hash of Nft's file, used to verify the correctness of the Nft
+        pub let MD5Hash: String
+        // whether the metadata of this Nft is frozen, stored on the centralized server should be false, this field can be modified by the owner of the contract
+        pub let isFrozened: Bool
+        // Nft's trading royalties can be modified by the creator
 
-    pub struct interface IMetaDataProvider {
-        pub fun getData() : AnyStruct
-        pub fun getDataType() : String
-    }
+        // I'm not sure if there is official support for storing files directly on the flow chain, which should be very costly
+        // pub let rawdataOnChain: String
 
-    pub struct interface IImmutableMetaData {
-        pub let data: AnyStruct
-        pub let type: String
-    }
-
-    pub struct interface IMutableMetaData {
-        pub let dataProvider: Capability<&AnyStruct{IMetaDataProvider}>
-    }
-
-    pub struct MetaData {
-        pub let elements : [MetaDataElement]
-
-        init(metaData : [MetaDataElement]?) {
-            self.elements = metaData ?? []
-        }
-
-        pub fun getMetaDataByTag(tag : String) : MetaDataElement? {
-            for element in self.elements {
-                if (element.hasTag(tag : tag)) {
-                    return element
-                }
-            }
-            return nil
-        }
-
-        pub fun conformsToSchema(schemaTags : [String]) : Bool {
-            var tags : [String] = []
-            for element in self.elements {
-                tags.appendAll(element.getTags())
-            }
-            for tag in schemaTags {
-                if(!tags.contains(tag)) {
-                    return false
-                }
-            }
-            return true
+        init(title: String,creator: Address,description: String,url: String,MD5Hash: String,royalty: UFix64) {
+            self.title=title
+            self.creator=creator
+            self.description=description
+            self.url=url
+            self.MD5Hash=MD5Hash
+            self.isFrozened=false
+            self.royalty=royalty
         }
     }
 
-    pub struct MetaDataElement {
-        pub let metaData : AnyStruct{ITaggedMetaData}
-        init (metadata : AnyStruct{ITaggedMetaData}) {
-            if (!metadata.isInstance(Type<AnyStruct{IMutableMetaData}>()) && !metadata.isInstance(Type<AnyStruct{IImmutableMetaData}>())) {
-                panic("Invalid Metadata Type")
-            }
-            self.metaData = metadata
-        }
+    // Anyone can call and see the metadata of the Nft
+    pub fun GetData(NftID: UInt64):Metadata? {
 
-        pub fun getData() : AnyStruct {
-            let m1 = self.metaData as? AnyStruct{IMutableMetaData}
-            if(m1 != nil) {
-                return m1!.dataProvider.borrow()!.getData()
-            }
-            let m2 = self.metaData as? AnyStruct{IImmutableMetaData}
-            if(m2 != nil) {
-                return m2!.data
-            }
-
-            panic("Invalid MetaData")
-        }
-
-        pub fun getDataType() : String {
-            let m1 = self.metaData as? AnyStruct{IMutableMetaData}
-            if(m1 != nil) {
-                return m1!.dataProvider.borrow()!.getDataType()
-            }
-            let m2 = self.metaData as? AnyStruct{IImmutableMetaData}
-            if(m2 != nil) {
-                return m2!.type
-            }
-
-            panic("Invalid MetaData")
-        }
-
-        pub fun getTags() : [String] {
-            return self.metaData.getTags()
-        }
-
-        pub fun hasTag(tag : String) : Bool {
-            return self.metaData.getTags().contains(tag)
-        }
-
-        pub fun isMutable() : Bool {
-            return self.metaData.isInstance(Type<AnyStruct{IMutableMetaData}>())
-        }
     }
 
-    pub struct ImmutablyTaggedString : IImmutableMetaData, ITaggedMetaData {
-        pub let data: AnyStruct
-        pub let type: String
-        pub let tags: [String]
+    // only can be called by Nft's creator
+    pub fun SetRoyalty(NftID: UInt64,royalty: UFix64):Bool{
 
-        init(data : String, tags: [String]) {
-            self.data = data
-            self.type = "string"
-            self.tags = tags
-        }
-
-        pub fun getTags() : [String] {
-            return self.tags
-        }
     }
 
-    pub struct DefaultName : IImmutableMetaData, ITaggedMetaData {
-        pub let data: AnyStruct
-        pub let type: String
+    // only can be called by contract's owner
+    pub fun SetFrozened(NftID: UInt64):Bool{
 
-        init(name : String) {
-            self.data = name
-            self.type = "string"
-        }
-
-        pub fun getTags() : [String] {
-            return ["name", "title"]
-        }
-    }
-
-    pub struct DefaultDescription : IImmutableMetaData, ITaggedMetaData {
-        pub let data: AnyStruct
-        pub let type: String
-
-        init(description : String) {
-            self.data = description
-            self.type = "string"
-        }
-
-        pub fun getTags() : [String] {
-            return ["description"]
-        }
-    }
-
-    pub struct PNG_DefaultImage : IImmutableMetaData, ITaggedMetaData {
-        pub let data: AnyStruct
-        pub let type: String
-
-        init(imgData : [UInt8]) {
-            self.data = imgData
-            self.type = "png"
-        }
-
-        pub fun getTags() : [String] {
-            return ["image", "portrait"]
-        }
-    }
-
-    pub struct PNG_RemoteDefaultImage : IMutableMetaData, ITaggedMetaData {
-        pub let dataProvider: Capability<&AnyStruct{IMetaDataProvider}>
-
-        init(provider : Capability<&AnyStruct{IMetaDataProvider}>) {
-            self.dataProvider = provider
-        }
-
-        pub fun getTags() : [String] {
-            return ["image", "portrait"]
-        }
-    }
-
-    pub struct RemotePNGProvider : IMetaDataProvider {
-        access(self) var data: [UInt8]
-        access(self) var isStatic : Bool
-
-        init (imgData : [UInt8], static : Bool) {
-            self.data = imgData
-            self.isStatic = static
-        }
-
-        access(account) fun setImage(imgData : [UInt8]) {
-            if(self.isStatic) {
-                panic("Cannot Set Static Image")
-            }
-            self.data = imgData
-        }
-
-        pub fun getData() : AnyStruct {
-            return self.data
-        }
-
-        pub fun getDataType() : String {
-            return "png"
-        }
     }
 }
 
@@ -324,4 +166,3 @@ pub contract interface NonFungibleToken {
         }
     }
 }
-
