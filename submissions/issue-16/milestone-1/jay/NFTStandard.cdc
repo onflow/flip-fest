@@ -2,6 +2,9 @@
 	This project is addressing problem "New Standard: NFT metadata #16"
 	The below code is untested and is meant as an illustration of the concept.
 
+    NftBase is added as a new default contract.
+
+
     The standard should
         fields are clear: any developer should comply, and browsers and other integrators can get the same type of data without any hassle
         very few restrictions: only abstract the common parts, whether they are needed for games, artwork or other projects
@@ -52,5 +55,81 @@ pub contract NftBase {
     // only can be called by contract's owner
     pub fun SetFrozened(NftID: UInt64):Bool{
 
+    }
+}
+
+/*
+just add  `metadata: NftBase.MetaData?`
+older NFTs will still be available after the NonFungibleToken contract is updated,but without new standard function to use.
+*/
+
+pub contract interface NonFungibleToken {
+
+    pub var totalSupply: UInt64
+
+    pub event ContractInitialized()
+
+    pub event Withdraw(id: UInt64, from: Address?)
+
+    pub event Deposit(id: UInt64, to: Address?)
+
+    pub resource interface INFT {
+        pub let id: UInt64
+        pub let metadata: NftBase.MetaData?
+    }
+
+    pub resource NFT: INFT {
+        pub let id: UInt64
+        pub let metadata: NftBase.MetaData?
+    }
+
+    pub resource interface Provider {
+        pub fun withdraw(withdrawID: UInt64): @NFT {
+            post {
+                result.id == withdrawID: "The ID of the withdrawn token must be the same as the requested ID"
+            }
+        }
+    }
+
+    pub resource interface Receiver {
+        pub fun deposit(token: @NFT)
+    }
+
+    pub resource interface CollectionPublic {
+        pub fun deposit(token: @NFT)
+        pub fun getIDs(): [UInt64]
+        pub fun borrowNFT(id: UInt64): &NFT
+    }
+
+    pub resource Collection: Provider, Receiver, CollectionPublic {
+
+        // Dictionary to hold the NFTs in the Collection
+        pub var ownedNFTs: @{UInt64: NFT}
+
+        // withdraw removes an NFT from the collection and moves it to the caller
+        pub fun withdraw(withdrawID: UInt64): @NFT
+
+        // deposit takes a NFT and adds it to the collections dictionary
+        // and adds the ID to the id array
+        pub fun deposit(token: @NFT)
+
+        // getIDs returns an array of the IDs that are in the collection
+        pub fun getIDs(): [UInt64]
+
+        // Returns a borrowed reference to an NFT in the collection
+        // so that the caller can read data and call methods from it
+        pub fun borrowNFT(id: UInt64): &NFT {
+            pre {
+                self.ownedNFTs[id] != nil: "NFT does not exist in the collection!"
+            }
+        }
+    }
+
+    // createEmptyCollection creates an empty Collection
+    // and returns it to the caller so that they can own NFTs
+    pub fun createEmptyCollection(): @Collection {
+        post {
+            result.getIDs().length == 0: "The created collection must be empty!"
+        }
     }
 }
