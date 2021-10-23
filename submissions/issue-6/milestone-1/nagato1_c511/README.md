@@ -4,9 +4,6 @@
 
 This PR is for issue #6.
 
-- Provide a summary of the work completed in this PR.
- - List of requirements that are being submitted.
-
 ## Submission Links & Documents
 
 1) Implementing minimum necessary i18n functionality based on the `gatsby-i18n` example.
@@ -69,10 +66,7 @@ We have manually verified these test cases:
 
 ## Other Details
 
-- Is there anything specific you'd like the PoC to know or review for?
-- Are there other references, documentation, or relevant artificats to mention for this PR (ie. external links to justify design decisions, etc.)?
-
-References:
+### References
 
 - [Official Gatsby i18n example](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n)
 - [Gatsby doc: Localization and Internationalization](https://www.gatsbyjs.com/docs/how-to/adding-common-features/localization-i18n/)
