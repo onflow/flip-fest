@@ -13,7 +13,7 @@ As I explained in my 0.5 solution, when loading the playground, 5 entries are ad
         - http://localhost:3000/?type=account&id=LOCAL-account-0
         - http://localhost:3000/local?type=account&id=LOCAL-account-0
 
-I was able to reduce this to 1 entry per user action. Below are some routes the user may take (consider 'http://localhost:3000/' as 'https://play.onflow.org'):
+I was able to reduce this to 1 entry per user action. Below are some example routes that results from a given user action (consider 'http://localhost:3000/' as 'https://play.onflow.org'):
 
 ##### USER:
 User visits the playground:
@@ -33,12 +33,11 @@ http://localhost:3000/a5051080-76f5-483a-8b93-9e4cfe31acf9?type=script&id=49b58d
 
 ##### VISITOR:
 Visitor visits the owner's playground:
-- enters in browser URL bar: http://localhost:3000/a5051080-76f5-483a-8b93-9e4cfe31acf9
-- URL persists as: http://localhost:3000/a5051080-76f5-483a-8b93-9e4cfe31acf9
-
-Clicks on any given account, transaction or script:
-- URL changes to http://localhost:3000/LOCAL-project?type=account&id=LOCAL-account-0 but persists the data from the owner's playground (same as play.onflow.org)
+- enters in browser URL bar: 
+  - URL persists as: http://localhost:3000/a5051080-76f5-483a-8b93-9e4cfe31acf9
+- clicks on any given account, transaction or script:
+  - URL changes to http://localhost:3000/LOCAL-project?type=account&id=LOCAL-account-1 but persists the data from the owner's playground (same behavior as play.onflow.org)
 
 ##### REDIRECT HANDLING:
-- any incorrect project ID will redirect to the root http://localhost:3000
-- any incorrect id entered for any given account, tx or script will redirect to the first id in the array for each account, tx or script
+- any incorrect project ID will redirect to the root http://localhost:3000 with a new project
+- any incorrect id entered for any given account, tx or script will redirect to the first id in the array for an account, tx or script
