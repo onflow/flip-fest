@@ -60,9 +60,9 @@ We have manually verified these test cases:
 
 ### Payout structure
 
-- @knagato: 33.33%
-- @avcdsld: 33.33%
-- @wshino: 33.33%
+- @knagato: 100%
+- @avcdsld: 0%
+- @wshino: 0%
 
 ## Other Details
 
