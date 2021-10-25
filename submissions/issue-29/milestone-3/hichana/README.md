@@ -1,4 +1,4 @@
-# hichana submission for milestone #3, FLIP issue #20
+# hichana submission for milestone #3, FLIP issue #29
 
 Thank you for reviewing my submission for FLIP issue #29 milestone: "3. Add support for new features on both the frontend and backend.". Before providing instructions and a screenshot-walkthrough, some notes:
 
