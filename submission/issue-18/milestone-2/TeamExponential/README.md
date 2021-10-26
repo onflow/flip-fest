@@ -1,6 +1,3 @@
-- summary
-- screenshot walktrhough
-
 # Playground Feature: Markdown READMEs #18 - Milestone 2
 Thank you for reading our Milestone 2 submission, "Implement UI changes.". After receiving [feedback from Max and Pete](https://github.com/onflow/flip-fest/pull/40#issuecomment-926683566), we iterated on our design, moving the project title, description and readme functionality from a button in the top right of the playground that rendered a popup, to a button in the sidebar that utilizes the playground editor window to display the functionality. The first version of our UI design can be found in the [mockups for Milestone 1 submission](https://github.com/hichana/flip-fest/tree/submissions/issue-%2318/milestone-%231/TeamExponential/submissions/issue-%2318/milestone-%231/TeamExponential/wireframe-mockups). Please note that with this milestone 2 we are not making a code submission as that will be made with Milestone 3 "Add support for storing and loading the README data on the frontend.". Below is a screenshot walkthrough of the new/iterated UI with typical user flows.
 
