@@ -45,11 +45,11 @@ Thank you for reading our Milestone 2 submission, "Implement UI changes.". After
   - in the readme file, note that the 'Title' is added as an H1 heading, 'Description' as an H2 heading with its text, and Readme content are all present
   ![open readme in code editor](https://github.com/hichana/flip-fest/blob/submissions/issue-%2318/milestone-%232/TeamExponential/submission/issue-18/milestone-2/TeamExponential/images/4%20-%203%20-%202%20open%20readme%20in%20code%20editor.png?raw=true)
 
-Visitor to the playground:
+Visitor to the playground via shared playground link from owner:
 - sees the title, description and readme content as HTML  
 ![visitor html](https://github.com/hichana/flip-fest/blob/submissions/issue-%2318/milestone-%232/TeamExponential/submission/issue-18/milestone-2/TeamExponential/images/5%20-%201%20-%20visitor%20html.png?raw=true)
 
-Visitor to the playgorund clicks the 'Fork' button:
+Visitor to the playground clicks the 'Fork' button:
 - first, if the visitor explores the project before clicking the 'Fork' button, they will see the owner's original code as usual
 - upon clicking the 'Fork' button, they are redirected to the PROJECT section, encouraging them to establish the title, description and readme content for their forked version
 ![visitor redirected](https://github.com/hichana/flip-fest/blob/submissions/issue-%2318/milestone-%232/TeamExponential/submission/issue-18/milestone-2/TeamExponential/images/6%20-%201%20-%20visitor%20redirected.png?raw=true)
