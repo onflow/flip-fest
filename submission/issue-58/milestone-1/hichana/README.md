@@ -34,7 +34,7 @@ http://localhost:3000/a5051080-76f5-483a-8b93-9e4cfe31acf9?type=script&id=49b58d
 ##### VISITOR:
 Visitor visits the owner's playground:
 - enters in browser URL bar: 
-  - URL persists as: http://localhost:3000/a5051080-76f5-483a-8b93-9e4cfe31acf9
+  - URL persists the owner's UUID and type, replaces the type id with the local version: http://localhost:3000/a5051080-76f5-483a-8b93-9e4cfe31acf9?type=script&id=LOCAL-script-temp-0
 - clicks on any given account, transaction or script:
   - URL changes to http://localhost:3000/LOCAL-project?type=account&id=LOCAL-account-1 but persists the data from the owner's playground (same behavior as play.onflow.org)
 
