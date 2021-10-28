@@ -30,7 +30,7 @@ Thank you for reviewing my submission for FLIP issue #29 milestone: "3. Add supp
 
 - Resources Explorer
 
-  - secion label displays user account corresponding to the storage data displayed
+  - section label displays user account corresponding to the storage data displayed
   - account storage items show with badge for any given type (Resource, Capability, Struct)
   - selected storage item displays the path and object data
   ![Resources-explorer-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/annotated-revised-images/Resources-explorer-1.png?raw=true)
