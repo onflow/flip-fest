@@ -1,9 +1,9 @@
 # hichana submission for milestone #1, FLIP issue #58
 
 ### SUMMARY
-Thank you for reviewing my submission for FLIP issue #58 milestone: "1. Eliminate each error referenced in the issues above. When applicable, refactor the code to avoid similar errors in the future.". I previously made a PR [#167](https://github.com/onflow/flip-fest/pull/59) with the basic solution. My latest PR [#172](https://github.com/onflow/flow-playground/pull/172) includes that fix together with a refactor that removes unecessary redirects and results in a better experience for users. I think that this refactor solution adds value to the playground, but if it is not acceptable or preferred for any reason my milestone [milestone #0.5](https://github.com/hichana/flip-fest/blob/submission/issue-%2358/milestone-%230.5/hichana/submission/issue-%2358/milestone-%230.5/hichana/%23%20milestone_readme.md) solution can be considered as my final solution for this FLIP.
+Thank you for reviewing my submission for FLIP issue #58 milestone: "1. Eliminate each error referenced in the issues above. When applicable, refactor the code to avoid similar errors in the future.". I previously made a PR [#167](https://github.com/onflow/flip-fest/pull/59) with the basic solution. My latest PR [#176](https://github.com/onflow/flow-playground/pull/176) includes that fix together with a refactor that removes unecessary redirects and results in a better experience for users. I think that this refactor solution adds value to the playground, but if it is not acceptable or preferred for any reason my milestone [milestone #0.5](https://github.com/hichana/flip-fest/blob/submission/issue-%2358/milestone-%230.5/hichana/submission/issue-%2358/milestone-%230.5/hichana/%23%20milestone_readme.md) solution can be considered as my final solution for this FLIP.
 
-My code submission is PR [#172](https://github.com/onflow/flow-playground/pull/172) on the playground repo.
+My code submission is PR [#176](https://github.com/onflow/flow-playground/pull/176) on the playground repo.
 
 As I explained in my 0.5 solution, when loading the playground, 5 entries are added into the browser's history stack. 
 
