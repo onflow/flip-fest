@@ -86,10 +86,12 @@ Thank you for reviewing my submission for FLIP issue #29 milestone: "3. Add supp
 ## Additional Instructions for viewing Struct and Null resources in user storage
 In the same project used in the last set of instructions, do the following:
 1. Add another contract and transactions:
-    - copy the [Approval Voting](https://play.onflow.org/cc2f56cf-c539-42c4-8b28-b988c3c5e048?type=account&id=9f584571-83fb-477e-ac00-09939fe5e315) contracts into 0x02
-    - copy [Transaction 1](https://play.onflow.org/cc2f56cf-c539-42c4-8b28-b988c3c5e048?type=tx&id=a0ff0f37-1446-45ec-952d-9f8d0fc020a8) into a new tx in the local playground with the same name
-    - copy [Transaction 2](https://play.onflow.org/cc2f56cf-c539-42c4-8b28-b988c3c5e048?type=tx&id=0d512c51-0641-41b0-8178-41d2f608bd3d) into a new tx in the local playground with the same name
-    - copy [Transaction 3](https://play.onflow.org/cc2f56cf-c539-42c4-8b28-b988c3c5e048?type=tx&id=0c0c88e4-9248-4af2-a515-22408b19c49b) into a new tx in the local playground with the same name
-2. Deploy and exectute transactions in order to add items to account 0x02 and 0x03's storage for demonstration purposes:
-    - Deploy 'ApprovalVoting' to 0x02
-    - Execute 'Transaction 1' with 0x02 as the signer
+    - copy the [Approval Voting](https://play.onflow.org/d428b2e0-92b2-44bf-a7c8-d11036977f28?type=account&id=094ce88c-8fec-438b-9705-d08d19f23f84) contracts into 0x02
+    - copy [Transaction 1](https://play.onflow.org/d428b2e0-92b2-44bf-a7c8-d11036977f28?type=tx&id=36814050-b5db-4efb-92ef-10257b1185b1) into a new tx in the local playground with the same name
+    - copy [Transaction 2](https://play.onflow.org/d428b2e0-92b2-44bf-a7c8-d11036977f28?type=tx&id=0864a141-7c73-4d23-a45a-45fa563cc678) into a new tx in the local playground with the same name
+    - copy [Transaction 3](https://play.onflow.org/d428b2e0-92b2-44bf-a7c8-d11036977f28?type=tx&id=d12e5d4f-d04b-4dc9-8731-bfb298eefe19) into a new tx in the local playground with the same name
+2. Deploy and exectute transactions in order to add items to account 0x01 and 0x02's storage for demonstration purposes:
+    - Click on the storage icon for 0x01, then deploy 'ApprovalVoting' to 0x01
+    - Execute 'Transaction 1' with 0x01 as the signer
+    - Click on 0x02's storage icon, then execute 'Transaction 2' with 0x01 and 0x02 as the signers. Notice the toast will display the multiple signers account numbers, indicating they have updated storage in account 0x02. Watch as 0x02 gets a Ballot resource added to storage
+    - Execute 'Transaction 3' with 0x02 as the signer. Watch the ballot resource get used and set to null badge, and watch an 'IVoted' struct get added to 0x02 storage with the appropriate badge.
