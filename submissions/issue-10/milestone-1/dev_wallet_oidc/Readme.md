@@ -5,11 +5,12 @@
 
 This PR is for issue [#10](https://github.com/onflow/flip-fest/issues/10)
 
-This submission includes multiple options of UI wireframes. 
+This submission includes 2 options of UI wireframes for Manage account screens and one solution for the accept
+Permissions screen.
 
 ## Submission Links & Documents
 
-- [Wireframes](https://...) 
+- [Wireframes](https://www.figma.com/file/DaOZAuBIm5gfDPEg6fWhjQ/Untitled?node-id=0%3A1) 
 
 ## Requirements Check
 
