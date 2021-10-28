@@ -14,26 +14,26 @@ Thank you for reviewing my submission for FLIP issue #29 milestone: "3. Add supp
 - URL params
 
   - 'none' renders no resources explorer on load
-  ![URL-params-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/revised-images/URL-params-1.png?raw=true)
+  ![URL-params-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/annotated-revised-images/URL-params-1.png?raw=true)
 
   - '0x01' renders resources explorer for account 0x01 on load 
-  ![URL-params-2](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/revised-images/URL-params-2%20.png?raw=true)
+  ![URL-params-2](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/annotated-revised-images/URL-params-2%20.png?raw=true)
 
 
 - decoupled resources explorer to explore multiple accounts without jarring any other user experiences in the playground
 
   - icon to right of each account indicates (in 'Flow' green) whether or not their storage is selected for display. After interacting with storage via a transaction or deploying a contract, and then selecting one of the storage icons, resources for the given account display.
-  ![Decoupled-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/revised-images/Decoupled-1.png?raw=true)
+  ![Decoupled-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/annotated-revised-images/Decoupled-1.png?raw=true)
 
   - click on any other account, transaction or script to display the content as usual (in this case a transaction), with the storage icon and corresponding resources explorer content persisting in the resources explorer. Selecting an account storage icon with no items in storage will indicate to the user that storage is empty.
-  ![Decoupled-2](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/revised-images/Decoupled-2.png?raw=true)
+  ![Decoupled-2](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/annotated-revised-images/Decoupled-2.png?raw=true)
 
 - Resources Explorer
 
   - secion label displays user account corresponding to the storage data displayed
   - account storage items show with badge for any given type (Resource, Capability, Struct)
   - selected storage item displays the path and object data
-  ![Resources-explorer-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/revised-images/Resources-explorer-1.png?raw=true)
+  ![Resources-explorer-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/annotated-revised-images/Resources-explorer-1.png?raw=true)
 
 
 - Account storage has been updated toast
@@ -42,15 +42,15 @@ Thank you for reviewing my submission for FLIP issue #29 milestone: "3. Add supp
   - toast disappears automatically after 5 seconds
   - each toast has a close icon-button that will collapse
   - toast will stack and fall away gracefully with successive transactions
-  ![Toast-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/revised-images/Toast-1.png?raw=true)
+  ![Toast-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/annotated-revised-images/Toast-1.png?raw=true)
 
 
 - Script/Transaction template modal
   - plus icon next to Capabilities in resources explorer pulls up modal that conditionally displays text, and conditionally renders select element options based on the capabilities present in account storage
   - 'Create' button will generate a working script template with comments to help new users
-  ![Script-tx-template-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/revised-images/Script-tx-template-1.png?raw=true)
-  ![Script-tx-template-2](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/revised-images/Script-tx-template-2.png?raw=true)
-  ![Script-tx-template-3](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/revised-images/Script-tx-template-3.png?raw=true)
+  ![Script-tx-template-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/annotated-revised-images/Script-tx-template-1.png?raw=true)
+  ![Script-tx-template-2](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/annotated-revised-images/Script-tx-template-2.png?raw=true)
+  ![Script-tx-template-3](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/annotated-revised-images/Script-tx-template-3.png?raw=true)
 
 
 ## Instructions for viewing the new UI elements in a running app:
