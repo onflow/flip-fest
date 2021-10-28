@@ -14,30 +14,26 @@ Thank you for reviewing my submission for FLIP issue #29 milestone: "3. Add supp
 - URL params
 
   - 'none' renders no resources explorer on load
-  ![URL-params-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/images/URL-params-1.png?raw=true)
+  ![URL-params-1]()
 
-  - '0x02' renders resources explorer for account 0x02 on load 
-  ![URL-params-2](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/images/URL-params-2.png?raw=true)
+  - '0x01' renders resources explorer for account 0x01 on load 
+  ![URL-params-2]()
 
 
 - decoupled resources explorer to explore multiple accounts without jarring any other user experiences in the playground
 
-  - storage icon to right of each account indicates (in 'Flow' green) whether or not their storage is selected for display. 
-  ![Decoupled-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/images/Decoupled-1.png?raw=true)
+  - icon to right of each account indicates (in 'Flow' green) whether or not their storage is selected for display. After interacting with storage via a transaction or deploying a contract, and then selecting one of the storage icons, resources for the given account display.
+  ![Decoupled-1]()
 
-  - click on any other account, transaction or script to display the content as usual, with the storage icon and corresponding resources explorer content persisting
-  ![Decoupled-2](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/images/Decoupled-2.png?raw=true)
-
-  - click on any other storage icon for any other account to display the resources explorer for any account
-  ![Decoupled-3](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/images/Decoupled-3.png?raw=true)
-
+  - click on any other account, transaction or script to display the content as usual (in this case a transaction), with the storage icon and corresponding resources explorer content persisting in the resources explorer. Selecting an account storage icon with no items in storage will indicate to the user that storage is empty.
+  ![Decoupled-2]()
 
 - Resources Explorer
 
   - secion label displays user account corresponding to the storage data displayed
   - account storage items show with badge for any given type (Resource, Capability, Struct)
   - selected storage item displays the path and object data
-  ![Resources-explorer-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/images/Resources-explorer-1.png?raw=true)
+  ![Resources-explorer-1]()
 
 
 - Account storage has been updated toast
@@ -46,16 +42,15 @@ Thank you for reviewing my submission for FLIP issue #29 milestone: "3. Add supp
   - toast disappears automatically after 5 seconds
   - each toast has a close icon-button that will collapse
   - toast will stack and fall away gracefully with successive transactions
-  ![Toast-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/images/Toast-1.png?raw=true)
+  ![Toast-1]()
 
 
 - Script/Transaction template modal
   - plus icon next to Capabilities in resources explorer pulls up modal that conditionally displays text, and conditionally renders select element options based on the capabilities present in account storage
   - 'Create' button will generate a working script template with comments to help new users
-  ![Script-tx-template-1](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/images/Script-tx-template-1.png?raw=true)
-  ![Script-tx-template-2](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/images/Script-tx-template-2.png?raw=true)
-  ![Script-tx-template-3](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/images/Script-tx-template-3.png?raw=true)
-  ![Script-tx-template-4](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/images/Script-tx-template-4.png?raw=true)
+  ![Script-tx-template-1]()
+  ![Script-tx-template-2]()
+  ![Script-tx-template-3]()
 
 
 ## Instructions for viewing the new UI elements in a running app:
@@ -64,11 +59,11 @@ Thank you for reviewing my submission for FLIP issue #29 milestone: "3. Add supp
 3. run `npm run start` to start to local playground app
 4. open a new playground: http://localhost:3000/ and click 'Save' (note, there may be a pre-existing issue here that requires you to refresh your browswer before being able to save)
 5. add contract and transactions:
-    - copy the [ExampleToken.cdc](https://play.onflow.org/098a4b49-1ffb-49a3-9b0e-df103a102df4?type=account&id=dda23726-526d-4aec-b68f-a7dd8d46e182) contract into the local playground's 0x01 account
-    - copy the [Create Link](https://play.onflow.org/098a4b49-1ffb-49a3-9b0e-df103a102df4?type=tx&id=1c1353ee-3a07-4666-9eb0-8ceac602b9ca) transaction code into a new transaction in the local playground named 'Create Link'
-    - copy the [Setup Account](https://play.onflow.org/098a4b49-1ffb-49a3-9b0e-df103a102df4?type=tx&id=5b09b1ef-34b1-4f52-ae1f-bdc52a68f310) transaction code into a new transaction in the local playgorund named 'Setup Account'
-    - copy the [Mint Tokens](https://play.onflow.org/098a4b49-1ffb-49a3-9b0e-df103a102df4?type=tx&id=2edb130c-b5ec-4f54-9adc-26d9ede1b1ce) transaction code into a new transaction in the local playgorund named 'Mint Tokens'
-    - copy the [Create Test Capabilities](https://play.onflow.org/098a4b49-1ffb-49a3-9b0e-df103a102df4?type=tx&id=d030556f-1d7c-4822-a5b2-4ca5452d5147) transaction code into a new transaction in the local playgorund named 'Create Test Capabilities'
+    - copy the [ExampleToken.cdc](https://play.onflow.org/fc011ed8-e59c-4d2c-97be-85d941a73512?type=account&id=195880aa-d3b7-4d72-b64a-4722f3ee6719) contract into the local playground's 0x01 account
+    - copy the [Create Link](https://play.onflow.org/fc011ed8-e59c-4d2c-97be-85d941a73512?type=tx&id=c40db3bc-2762-46a0-b0e1-25f35051a05f) transaction code into a new transaction in the local playground named 'Create Link'
+    - copy the [Setup Account](https://play.onflow.org/fc011ed8-e59c-4d2c-97be-85d941a73512?type=tx&id=eb49ebe7-0d4e-4984-939f-8f7afea7bfad) transaction code into a new transaction in the local playgorund named 'Setup Account'
+    - copy the [Mint Tokens](https://play.onflow.org/fc011ed8-e59c-4d2c-97be-85d941a73512?type=tx&id=27fd3e3c-c611-441f-871e-c256e721762c) transaction code into a new transaction in the local playgorund named 'Mint Tokens'
+    - copy the [Create Test Capabilities](https://play.onflow.org/fc011ed8-e59c-4d2c-97be-85d941a73512?type=tx&id=c7253900-f595-4391-99ed-af7aadd7035c) transaction code into a new transaction in the local playgorund named 'Create Test Capabilities'
 6. Deploy and exectute transactions in order to add items to account 0x01 and 0x02's storage for demonstration purposes:
     - Deploy 'ExampleToken.cdc' to 0x01 
     - Execute the 'Create Link' once with 0x01 as the signer
