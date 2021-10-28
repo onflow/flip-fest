@@ -25,7 +25,8 @@ In the same project used in the last set of instructions, do the following:
 
 
 
-### Screenshot walkthrough and examples for Fungible Token Example
+## Screenshot walkthrough and examples for Fungible Token Example
+#### Screenshot Walkthrough:
 - URL params
 
   - 'none' renders no resources explorer on load
@@ -68,7 +69,7 @@ In the same project used in the last set of instructions, do the following:
   ![Script-tx-template-3](https://github.com/hichana/flip-fest/blob/submissions/issue-%2329/milestone-3/hichana/submissions/issue-29/milestone-3/hichana/annotated-revised-images/Script-tx-template-3.png?raw=true)
 
 
-## Instructions for viewing the new UI elements in a running app:
+#### Instructions for viewing the new UI elements in a running app for fungible tokens: 
 1. I have not changed the playground api, but I am running it locally during development. The `codegen.yml` file therefore points to the local host 8080. Please run the playground api locally.
 2. make sure `.env.local` has been copied into a `.env` file
 3. run `npm run start` to start to local playground app
