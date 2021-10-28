@@ -12,12 +12,16 @@ Thank you for reviewing my submission for FLIP issue #29 milestone: "3. Add supp
     
 ## Instructions for viewing Struct and Null resources in user storage
 In the same project used in the last set of instructions, do the following:
-1. Add another contract and transactions:
+1. I have not changed the playground api, but I am running it locally during development. The `codegen.yml` file therefore points to the local host 8080. Please run the playground api locally.
+2. make sure `.env.local` has been copied into a `.env` file
+3. run `npm run start` to start to local playground app
+4. open a new playground: http://localhost:3000/ and click 'Save' (note, there may be a pre-existing issue here that requires you to refresh your browswer before being able to save)
+5. Add another contract and transactions:
     - copy the [Approval Voting](https://play.onflow.org/d428b2e0-92b2-44bf-a7c8-d11036977f28?type=account&id=094ce88c-8fec-438b-9705-d08d19f23f84) contracts into 0x02
     - copy [Transaction 1](https://play.onflow.org/d428b2e0-92b2-44bf-a7c8-d11036977f28?type=tx&id=36814050-b5db-4efb-92ef-10257b1185b1) into a new tx in the local playground with the same name
     - copy [Transaction 2](https://play.onflow.org/d428b2e0-92b2-44bf-a7c8-d11036977f28?type=tx&id=0864a141-7c73-4d23-a45a-45fa563cc678) into a new tx in the local playground with the same name
     - copy [Transaction 3](https://play.onflow.org/d428b2e0-92b2-44bf-a7c8-d11036977f28?type=tx&id=d12e5d4f-d04b-4dc9-8731-bfb298eefe19) into a new tx in the local playground with the same name
-2. Deploy and exectute transactions in order to add items to account 0x01 and 0x02's storage for demonstration purposes:
+6. Deploy and exectute transactions in order to add items to account 0x01 and 0x02's storage for demonstration purposes:
     - Click on the storage icon for 0x01, then deploy 'ApprovalVoting' to 0x01
     - Execute 'Transaction 1' with 0x01 as the signer
     - Click on 0x02's storage icon, then execute 'Transaction 2' with 0x01 and 0x02 as the signers. Notice the toast will display the multiple signers account numbers, indicating they have updated storage in account 0x02. Watch as 0x02 gets a Ballot resource added to storage
@@ -70,23 +74,20 @@ In the same project used in the last set of instructions, do the following:
 
 
 #### Instructions for viewing the new UI elements in a running app for fungible tokens: 
-1. I have not changed the playground api, but I am running it locally during development. The `codegen.yml` file therefore points to the local host 8080. Please run the playground api locally.
-2. make sure `.env.local` has been copied into a `.env` file
-3. run `npm run start` to start to local playground app
-4. open a new playground: http://localhost:3000/ and click 'Save' (note, there may be a pre-existing issue here that requires you to refresh your browswer before being able to save)
-5. add contract and transactions:
+1. in a new localhost:3000 playground
+2. add contract and transactions:
     - copy the [ExampleToken.cdc](https://play.onflow.org/fc011ed8-e59c-4d2c-97be-85d941a73512?type=account&id=195880aa-d3b7-4d72-b64a-4722f3ee6719) contract into the local playground's 0x01 account
     - copy the [Create Link](https://play.onflow.org/fc011ed8-e59c-4d2c-97be-85d941a73512?type=tx&id=c40db3bc-2762-46a0-b0e1-25f35051a05f) transaction code into a new transaction in the local playground named 'Create Link'
     - copy the [Setup Account](https://play.onflow.org/fc011ed8-e59c-4d2c-97be-85d941a73512?type=tx&id=eb49ebe7-0d4e-4984-939f-8f7afea7bfad) transaction code into a new transaction in the local playgorund named 'Setup Account'
     - copy the [Mint Tokens](https://play.onflow.org/fc011ed8-e59c-4d2c-97be-85d941a73512?type=tx&id=27fd3e3c-c611-441f-871e-c256e721762c) transaction code into a new transaction in the local playgorund named 'Mint Tokens'
     - copy the [Create Test Capabilities](https://play.onflow.org/fc011ed8-e59c-4d2c-97be-85d941a73512?type=tx&id=c7253900-f595-4391-99ed-af7aadd7035c) transaction code into a new transaction in the local playgorund named 'Create Test Capabilities'
-6. Deploy and exectute transactions in order to add items to account 0x01 and 0x02's storage for demonstration purposes:
+3. Deploy and exectute transactions in order to add items to account 0x01 and 0x02's storage for demonstration purposes:
     - Deploy 'ExampleToken.cdc' to 0x01 
     - Execute the 'Create Link' once with 0x01 as the signer
     - Execute the 'Setup Account' transaction with 0x02 as the signer
     - Execute the 'Mint Tokens' transaction with 0x01 as the signer
     - Execute the 'Create Test Capabilities' transaction with 0x02 as the signer
-7. Explore the UI:
+4. Explore the UI:
     - quickly explore multiple accounts and see visual cues:
         - click on the storage icon to the right of 0x02 in the sidebar. The resources explorer should render both 'MainReceiver', 'MainVault', 'BalanceOnly', and 'ReceiverOnly' with badges that represent visual cues as to what is in storage
         - click on the icon to the right of 0x01 in the sidebar. The resources explorer should render just the storage items for 0x01.
