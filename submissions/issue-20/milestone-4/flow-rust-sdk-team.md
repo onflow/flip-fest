@@ -1,12 +1,11 @@
-##  Flow-Rust-SDK - Milestone 4 [WIP]
+##  Flow-Rust-SDK - Milestone 4
 
 This PR is for issue #20.
 
 
 ### Milestone 4 Completion:
-- 4 [ ] Complete documentation and common usage examples are available
+- 4 [X] [Complete documentation and common usage examples are available](https://github.com/MarshallBelles/flow-rust-sdk/wiki)
 
-This is a WIP.
 
 Authors include:
 
