@@ -13,7 +13,7 @@ Contracts are proposed to be put as horizontal tabs above the Cadence editor fol
 
 New contract schema will be introduced and relevant code changes will be made.
 
-```
+'''
 type Contract {
   id: UUID!
   accountId: UUID
@@ -22,4 +22,4 @@ type Contract {
   script: String!
   deployedScript: String
 }
-```
+'''
