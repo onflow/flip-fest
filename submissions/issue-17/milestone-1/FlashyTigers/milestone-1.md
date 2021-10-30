@@ -9,7 +9,7 @@ This PR is for issue #17 (https://github.com/onflow/flip-fest/issues/17)
 
 [Flow DID Spec](https://eoverse.notion.site/Flow-ID-Spec-0a3bda315a574326b354b4c67b7b39a6)
 
-[Live Demo on netlify](https://laughing-mcnulty-4fcaad.netlify.app/godmode)
+[Live Demo on netlify](https://flownames.netlify.app/godmode)
 1. Create a collection
 2. Register a name
 3. Lookup a name
