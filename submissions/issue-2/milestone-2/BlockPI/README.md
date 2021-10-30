@@ -5,7 +5,7 @@
 This PR is for issue [#2](https://github.com/onflow/flip-fest/issues/2)
 
 
-## Features submitted
+## Features Submitted
 * Explorer frontent
 
 ## Submission Links & Documents
