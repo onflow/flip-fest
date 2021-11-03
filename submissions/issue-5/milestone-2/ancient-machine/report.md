@@ -126,7 +126,7 @@ limit: 6000,
 ....
 ```
 
-To sum up, I am happy to work on this project because with educational purpose in mind, the team really organized the code in to modules with least dependencies, least bugs possible. There is no backend to install and config so we can focus on the smart contracts and react code itself. [The final demo](https://www.youtube.com/watch?v=Udsn45p7gRE) can be watch here:
+To sum up, I am happy to work on this project because with educational purpose in mind, the team really organized the code in to modules with least dependencies, least bugs possible. There is no backend to install and config so we can focus on the smart contracts and react code itself. [The final demo](https://www.youtube.com/watch?v=Udsn45p7gRE) can be watch here: https://www.youtube.com/watch?v=Udsn45p7gRE
 
 Demo of peer to peer sale, packing, breeding of dappies
 
