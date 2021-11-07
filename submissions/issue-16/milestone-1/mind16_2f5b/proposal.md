@@ -141,18 +141,22 @@ Modularity: Depending on the differences in scalability requirements, we can div
    {
        "mutable_data":{
 
-           ”version_number“: "1.1.1",
-            
-           "attack":{
-               "description":"The initial damage that can be dealt by one normal attack",
-               "type":"int",
-               "value":100
-           },
-           "defense":{
-               "description":"Value of damage that can be offset",
-               "type":"int",
-               "value":100
-           },
+            "gameData"{
+                ”version_number“: "10",
+                "attack":{
+                    "description":"The initial damage that can be dealt by one normal attack",
+                    "type":"int",
+                    "value":100
+                },
+                "defense":{
+                    "description":"Value of damage that can be offset",
+                    "type":"int",
+                    "value":100
+                }
+
+            }
+        
+           
            ...
        }
    }
@@ -199,20 +203,25 @@ Modularity: Depending on the differences in scalability requirements, we can div
        }
     },
     "mutable_data":{
-        ”version_number“: "1.1.1",
 
-        "attack":{
-               "description":"The initial damage that can be dealt by one normal attack",
-               "type":"int",
-               "value":100
-           },
-        "defense":{
-               "description":"Value of damage that can be offset",
-               "type":"int",
-               "value":100
-           },
+            "gameData"{
+                ”version_number“: "10",
+                "attack":{
+                    "description":"The initial damage that can be dealt by one normal attack",
+                    "type":"int",
+                    "value":100
+                },
+                "defense":{
+                    "description":"Value of damage that can be offset",
+                    "type":"int",
+                    "value":100
+                }
+
+            }
+        
+           
            ...
-        }
+       }
  
     }
 
@@ -240,12 +249,8 @@ So we still plan to introduce a solution with generality based on Cadence's type
 4. support for adding new schema
 5. support for mutable metadata
 
-We refered to the Cadence documentation and read the discussion in [issue#9](https://github.com/onflow/flow-nft/issues/9) and came up with the following basic solution:
+We refered to the Cadence documentation and read the discussion in [issue#9](https://github.com/onflow/flow-nft/issues/9) and came up with a basic solution!(We put it at the end of this proposal) [Code](#code)
 
-
-```
-We ARE STILL REFINING THIS PART OF THE CADENCE DATA. IT IS COMING SOON!!
-```
 
 #### 4. Composability & Dynamic Metadata
 
@@ -345,3 +350,276 @@ Users will then be able to easily access detailed information about any NFT, suc
 Project owners can also interface with us to build a monitoring dashboard of all NFT data.
 
 Stay tuned.
+
+
+
+
+# code
+
+```
+
+
+
+pub contract MetadataLib{
+
+
+    // 1. BasicInfo
+    pub struct BasicInfo{
+
+        pub let name : String
+        pub let description : String
+        pub let portrait : [UInt8]
+       
+        init (name_ : String, description_ : String, portrait_ : [UInt8] ){
+            self.name = name_
+            self.description = description_
+            self.portrait = portrait
+        }
+
+        pub fun getName() : String{
+            return self.name
+        } 
+
+        pub fun getDescription() : String{
+            return self.description
+        } 
+
+        pub fun getPortrait() : [UInt8]{
+            return self.portrait
+        }
+
+    }
+
+    //2. Schemas
+    pub struct SchemaItem {
+        pub let name : String 
+        pub let data : AnyStruct
+
+        init (name_ : String, data_ : AnyStruct){
+            self.name = name_
+            self.data = data_
+        }
+
+        pub fun getName(): String{
+            return self.name
+        }
+
+        pub fun getData(): AnyStruct{
+            return self.data
+        }
+
+
+    }
+
+    //an SchemaExample which can be specfied in user's own contract
+
+    pub struct Royalty{
+    
+        pub let beneficiaries:[UInt]
+        pub let share:[UInt]
+
+        init(abeneficiaries_: [UInt], share_:[UInt]){
+            
+            //some logic here to validate input 
+
+            self.beneficiaries = beneficiaries_
+            self.share = share_
+        }
+
+        pub fun getBeneficiaries():[UInt]{
+            return self.beneficiaries
+        }
+
+        pub fun getShare():[UInt]{
+            return self.share
+        }
+
+    }
+
+    //3. raw data anchors
+    pub struct AnchorItem {
+        pub let name : String
+        pub let description : String
+        pub let uri : String
+        pub let integrityProof : [UInt8]
+
+        init (name_ : String, description_ : String; uri_ : String, integrityProof_ : [UInt8] ) {
+            
+            self.name = name_
+            self.description = description_
+            self.uri = uri_
+            self.integrityProof = integrityProof_
+
+        }
+
+        pub fun getName() : String{
+            return self.name
+        } 
+
+        pub fun getDescription() : String{
+            return self.description
+        } 
+
+        pub fun getUri() : String{
+            return self.uri
+        }
+
+        pub fun getIntegrityProof() : [UInt8]{
+            return self.integrityProof
+        }
+
+    }
+
+    // 4. mutable data 
+    // references Team Coelacanth's code, thanks!
+
+
+    pub struct interface IDataManager {
+        pub fun getVersionNumber(): Uint
+        pub fun getData() : AnyStruct
+    }
+
+    pub struct MutableDataItem{
+        
+        pub let dataManager: Capability<&AnyStruct{IDataManager}>
+
+    }
+
+    
+    pub struct DataManager : IDataManager {
+        access(self) var data: AnyStruct
+        access(self) var VersionNumber : Uint
+
+        init (data_ : AnyStruct) {
+            self.VersionNumber = 0
+            self.data = data_
+        }
+
+        access(account) fun updateData(data_ : AnyStruct) {
+            self.data = data_
+        }
+
+        pub fun getData() : AnyStruct {
+            return self.data
+        }
+
+        pub fun getVersionNumber() : String { 
+            return VersionNumber
+        }
+    }
+    
+
+    pub struct Metadata{
+
+        pub let basicInfo : BasicInfo
+        pub let schemas : {String : SchemaItem}
+        pub let anchors : {String : AnchorItem}
+        pub let mutableData : {String : MutableDataItem}
+
+        init(basicInfo_: BasicInfo, schemas_:{String : SchemaItem},anchors_:{String : AnchorItem}, mutableData_:{String : MutableDataItem}){
+            self.basicInfo = basicInfo_
+            self.schemas = schemas_
+            self.anchors = anchors_
+            self.mutableData = mutableData_
+
+        }
+
+        pub fun getBasicInfo():BasicInfo{
+            return self.basicInfo
+        }
+
+        pub fun getSchema(key:String):SchemaItem{
+            return self.schemas_[key]
+        }
+
+        pub fun getAnchor(key:String):AnchorItem{
+            return self.anchors[key]
+        }
+        
+        pub fun getMutableData(key:String):MutableDataItem{
+            return self.mutableData[key]
+        }
+
+}
+
+// add Metadata into Flow's NFT Standard
+
+pub contract interface NonFungibleToken {
+
+
+    pub var totalSupply: UInt64
+
+    pub event ContractInitialized()
+
+    pub event Withdraw(id: UInt64, from: Address?)
+
+    pub event Deposit(id: UInt64, to: Address?)
+
+    pub resource interface INFT {
+
+        pub let id: UInt64
+        pub let metadata: MetadataLib.MetaData?
+    }
+
+    pub resource NFT: INFT {
+        pub let id: UInt64
+        pub let metadata: MetadataLib.MetaData?
+    }
+
+
+    pub resource interface Provider {
+       
+        pub fun withdraw(withdrawID: UInt64): @NFT {
+            post {
+                result.id == withdrawID: "The ID of the withdrawn token must be the same as the requested ID"
+            }
+        }
+    }
+
+    pub resource interface Receiver {
+
+        // deposit takes an NFT as an argument and adds it to the Collection
+        //
+        pub fun deposit(token: @NFT)
+    }
+
+    pub resource interface CollectionPublic {
+        pub fun deposit(token: @NFT)
+        pub fun getIDs(): [UInt64]
+        pub fun borrowNFT(id: UInt64): &NFT
+    }
+
+    pub resource Collection: Provider, Receiver, CollectionPublic {
+
+        // Dictionary to hold the NFTs in the Collection
+        pub var ownedNFTs: @{UInt64: NFT}
+
+        // withdraw removes an NFT from the collection and moves it to the caller
+        pub fun withdraw(withdrawID: UInt64): @NFT
+
+        // deposit takes a NFT and adds it to the collections dictionary
+        // and adds the ID to the id array
+        pub fun deposit(token: @NFT)
+
+        // getIDs returns an array of the IDs that are in the collection
+        pub fun getIDs(): [UInt64]
+
+        // Returns a borrowed reference to an NFT in the collection
+        // so that the caller can read data and call methods from it
+        pub fun borrowNFT(id: UInt64): &NFT {
+            pre {
+                self.ownedNFTs[id] != nil: "NFT does not exist in the collection!"
+            }
+        }
+    }
+
+    // createEmptyCollection creates an empty Collection
+    // and returns it to the caller so that they can own NFTs
+    pub fun createEmptyCollection(): @Collection {
+        post {
+            result.getIDs().length == 0: "The created collection must be empty!"
+        }
+    }
+}
+
+```
