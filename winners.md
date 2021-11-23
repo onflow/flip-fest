@@ -87,8 +87,8 @@ Build a graphical user interface (GUI) that simplifies the network state into vi
       <td align="left">
         <a href="https://github.com/bartolomej"> bartolomej </a>
       </td>
-      <td align="right">45.5%</td>
-      <td align="right">$26,731</td>
+      <td align="right">36.5%</td>
+      <td align="right">$21,444</td>
       <td align="right">TBD</td>
     </tr>
     <tr>
@@ -96,8 +96,8 @@ Build a graphical user interface (GUI) that simplifies the network state into vi
       <td align="left">
        <a href="https://github.com/jgololicic"> jgololicic </a>
       </td>
-      <td align="right">36.5%</td>
-      <td align="right">$21,444</td>
+       <td align="right">45.5%</td>
+      <td align="right">$26,731</td>
       <td align="right">TBD</td>
     </tr>
     <tr>
@@ -106,7 +106,7 @@ Build a graphical user interface (GUI) that simplifies the network state into vi
         <a href="https://github.com/monikaxh"> monikaxh </a>
       </td>
       <td align="right">18%</td>
-      <td align="right">$21,444</td>
+      <td align="right">$10,575</td>
       <td align="right">TBD</td>
     </tr>
     <tr>
@@ -468,7 +468,7 @@ This effort proposes bundling the dev wallet server as part of the emulator, and
             <li> <a href="https://github.com/bluesign"> bluesign </a></li>
         </ul>
       </td>
-      <td align="right">1/3</td>
+      <td align="right">3/3</td>
       <td align="left">
         <ul>
             <li> 
