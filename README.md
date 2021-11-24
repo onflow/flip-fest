@@ -2,7 +2,7 @@
 
 # 🚧 FLIP Fest has been completed! 🚧
 
-To see the winners and all the amazing projects produced by the participants, see the [winners](./winners).
+To see the winners and all the amazing projects produced by the participants, see the [winners](./winners.md).
 
 ---
 
