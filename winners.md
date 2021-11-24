@@ -2,7 +2,7 @@
 
 > Note: All dollar amounts are listed in *USD*. All payouts will be done in *FLOW* using the average price during November.
 
-> If you notice and issues or problems with any of the amounts below, please post an issue with the problem and potential correction (if needed).
+> If you notice any issues or problems with any of the amounts below, please post an issue with the problem and potential correction (if needed).
 
 ---
 
