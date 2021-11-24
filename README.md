@@ -1,5 +1,11 @@
 ![image](https://user-images.githubusercontent.com/8709330/133093074-c64a6a04-3ee6-42d3-837d-d75ab9328a20.png)
 
+# 🚧 FLIP Fest has been completed! 🚧
+
+To see the winners and all the amazing projects produced by the participants, see the [winners](./winners).
+
+---
+
 # Welcome to Flow's FLIP Fest
 
 This event is being moderated through [HackerEarth](https://www.hackerearth.com/challenges/hackathon/flip-fest/). If you interested in participating, please review all the details of the event and register through the link above.
