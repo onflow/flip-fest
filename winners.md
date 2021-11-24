@@ -39,8 +39,8 @@ Build a graphical user interface (GUI) that simplifies the network state into vi
       <td align="right">4/4</td>
       <td align="left">
         <ul>
-            <li> <a href="https://bartolomej.github.io/flowser"> Flowser Project Website </a></li>
-            <li><a href="https://github.com/bartolomej/flowser"> Flowser Repo </a></li>
+            <li> <a href="https://flowser.dev"> Flowser Project Website </a></li>
+            <li><a href="https://github.com/onflowser/flowser"> Flowser Repo </a></li>
             <li><a href="https://www.youtube.com/watch?v=yMs5awvGnlY"> Video Demo </a></li>
         </ul>
      </td>
