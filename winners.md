@@ -694,10 +694,10 @@ When an event occurs, the application will update its internal state (e.g. a dat
                 <a href="https://github.com/onflow/flip-fest/tree/main/submissions/issue-15/milestone-4/pratik1719_a2eb9">Last PR</a>
             </li>
             <li> 
-                <a href="https://github.com/chriswayoub/flow-scanner-example">Example Deployment (Restricted Access)</a>
+                <a href="https://github.com/rayvin-flow/flow-scanner">Flow Scanner Service</a>
             </li>
             <li>
-                <a href="https://github.com/chriswayoub/flow-scanner"> Repository & Docs (Restricted Access) </a>
+                <a href="https://github.com/rayvin-flow/flow-scanner-lib"> Flow Scanner Library </a>
             </li>
         </ul>
       </td>
