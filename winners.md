@@ -837,8 +837,8 @@ The current Flow NFT interface, however, does not include a metadata standard th
       </td>
       <td align="right">$8,750</td>
       <td align="right">$0</td>
-      <td align="right">$25,000</td>
-      <td align="right">$33,750</td>
+      <td align="right">$10,000</td>
+      <td align="right">$18,750</td>
     </tr>
     <tr>
       <td><i>mind16_2f5b </i></td>
@@ -927,7 +927,7 @@ The current Flow NFT interface, however, does not include a metadata standard th
           <a href="https://github.com/figs999"> figs999 </a>
       </td>
       <td align="right">100%</td>
-      <td align="right">$33,750</td>
+      <td align="right">$18,750</td>
       <td align="right">TBD</td>
     </tr>
     <tr>
