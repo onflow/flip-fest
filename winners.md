@@ -1580,6 +1580,27 @@ Flow developers use the playground to learn, experiment, and share Cadence code.
       <td align="right">N/A</td>
       <td align="right">$26,250</td>
     </tr>
+    <tr>
+      <td><i>sheeeeeeeeesh </i></td>
+      <td align="left">
+        <ul>
+            <li> <a href="https://github.com/jakic12"> jakic12 </a></li>
+            <li> <a href="https://github.com/bartolomej"> bartolomej </a></li>
+        </ul>
+      </td>
+      <td align="right">1/2</td>
+      <td align="left">
+        <ul>
+            <li> 
+                <a href="https://github.com/onflow/flip-fest/pull/118#issuecomment-961499629">Last PR</a>
+            </li>
+        </ul>
+      </td>
+      <td align="right">$250</td>
+      <td align="right">$0</td>
+      <td align="right">N/A</td>
+      <td align="right">$250</td>
+    </tr>
   </tbody>
 </table>
 
@@ -1601,6 +1622,24 @@ Flow developers use the playground to learn, experiment, and share Cadence code.
       </td>
       <td align="right">100%</td>
       <td align="right">$26,250</td>
+      <td align="right">TBD</td>
+    </tr>
+    <tr>
+      <td><i>sheeeeeeeeesh</i></td>
+      <td align="left">
+          <a href="https://github.com/jakic12"> jakic12 </a>
+      </td>
+      <td align="right">50%</td>
+      <td align="right">$125</td>
+      <td align="right">TBD</td>
+    </tr>
+    <tr>
+      <td><i>sheeeeeeeeesh</i></td>
+      <td align="left">
+          <a href="https://github.com/bartolomej"> bartolomej </a>
+      </td>
+      <td align="right">50%</td>
+      <td align="right">$125</td>
       <td align="right">TBD</td>
     </tr>
   </tbody>
