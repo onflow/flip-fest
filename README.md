@@ -1,18 +1,18 @@
 ![image](https://user-images.githubusercontent.com/8709330/133093074-c64a6a04-3ee6-42d3-837d-d75ab9328a20.png)
 
-# 🚧 FLIP Fest has been completed! 🚧
+# flip-fest — Flow Improvement Proposal Contribution Backlog
 
 To see the winners and all the amazing projects produced by the participants, see the [winners](./winners.md).
 
 ---
 
-# Welcome to Flow's FLIP Fest
+# Welcome to the FLIP Fest
 
 This event is being moderated through [HackerEarth](https://www.hackerearth.com/challenges/hackathon/flip-fest/). If you interested in participating, please review all the details of the event and register through the link above.
 
 ## What is FLIP Fest?
 
-The Flow FLIP Fest is a two-month event that will engage and reward participants for creating innovative and effective improvements to Flow's Ecosystem. A FLIP is a Flow Improvement Proposal; a community-driven initiative to discuss and execute impactful improvements on Flow.
+The Flow FLIP Fest is a two-month event that will engage and reward participants for creating innovative and effective improvements to the Flow Ecosystem. A FLIP is a Flow Improvement Proposal; a community-driven initiative to discuss and execute impactful improvements on Flow.
 
 Teams or individuals can sign-up to tackle high impact projects through any of the issues listed in this repository. Core contributors to Flow will aid and guide you through your project as you work to deliver an optimal solution alongside other teams.
 
@@ -79,6 +79,14 @@ Your point-of-contact (PoC) will be the first person to contact for help regardi
 
 ### Useful Links
 
-- [Flow Developer Documentation](https://docs.onflow.org/)
+- [Flow Developer Documentation](https://developers.flow.com/)
 - [General Resources Guide](https://docs.google.com/document/d/1VXStCyTYRjGNCzTBUW9JAgVenfvLghKq3iMGkMlmroU/edit#heading=h.qpn9u6p0l5y7)
 - [Flow Community Projects](https://www.flowverse.co/)
+## About Flow
+
+This repo is part of the [Flow network](https://flow.com), a Layer 1 blockchain built for consumer applications, AI agents, and DeFi at scale.
+
+- Developer docs: https://developers.flow.com
+- Cadence language: https://cadence-lang.org
+- Community: [Flow Discord](https://discord.gg/flow) · [Flow Forum](https://forum.flow.com)
+- Governance: [Flow Improvement Proposals](https://github.com/onflow/flips)
