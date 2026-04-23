@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/8709330/133093074-c64a6a04-3ee6-42d3-837d-d75ab9328a20.png)
 
-# flip-fest — Flow Improvement Proposal Contribution Backlog
+# flip-fest — Flow Improvement Proposal (FLIP) Fest
 
 To see the winners and all the amazing projects produced by the participants, see the [winners](./winners.md).
 
@@ -82,6 +82,7 @@ Your point-of-contact (PoC) will be the first person to contact for help regardi
 - [Flow Developer Documentation](https://developers.flow.com/)
 - [General Resources Guide](https://docs.google.com/document/d/1VXStCyTYRjGNCzTBUW9JAgVenfvLghKq3iMGkMlmroU/edit#heading=h.qpn9u6p0l5y7)
 - [Flow Community Projects](https://www.flowverse.co/)
+
 ## About Flow
 
 This repo is part of the [Flow network](https://flow.com), a Layer 1 blockchain built for consumer applications, AI agents, and DeFi at scale.
